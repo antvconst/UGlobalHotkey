@@ -21,3 +21,6 @@ connect(hotkeyManager, &UGlobalHotkeys::Activated, [=](size_t id)
     qDebug() << "Activated: " << QString::number(id);
 });
 ```
+
+### License  
+UGlobalHotkey library is licensed as Public Domain, so you are free to do anything with it.
