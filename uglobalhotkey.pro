@@ -22,3 +22,4 @@ SOURCES += \
     uglobalhotkeys.cpp \
     uexception.cpp \
 
+unix: LIBS += -lxcb -lxcb-keysyms
