@@ -73,8 +73,13 @@ void UGlobalHotkeys::unregisterHotkey(size_t id) {
 
 void UGlobalHotkeys::unregisterAllHotkeys()
 {
+#ifdef Q_OS_WIN
     for (size_t id : Registered)
         this->unregisterHotkey(id);
+#elif defined(Q_OS_LINUX)
+    for (size_t id :Registered.keys())
+        this->unregisterHotkey(id);
+#endif
 }
 
 UGlobalHotkeys::~UGlobalHotkeys() {
