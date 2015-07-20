@@ -22,4 +22,5 @@ SOURCES += \
     uglobalhotkeys.cpp \
     uexception.cpp \
 
-unix: LIBS += -lxcb -lxcb-keysyms
+linux: LIBS += -lxcb -lxcb-keysyms
+mac: LIBS += -framework Carbon
