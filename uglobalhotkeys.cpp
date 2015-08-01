@@ -105,7 +105,7 @@ void UGlobalHotkeys::unregisterHotkey(size_t id) {
     Q_ASSERT(Registered.find(id) != Registered.end() && "Unregistered hotkey");
     #endif
     #if defined(Q_OS_WIN)
-    unregisterHotKey((HWND)winId(), id);
+    UnregisterHotKey((HWND)winId(), id);
     #elif defined(Q_OS_LINUX)
     unregLinuxHotkey(id);
     #endif
@@ -133,7 +133,7 @@ void UGlobalHotkeys::unregisterAllHotkeys()
 UGlobalHotkeys::~UGlobalHotkeys() {
     #if defined(Q_OS_WIN)
     for (QSet<size_t>::iterator i = Registered.begin(); i != Registered.end(); i++) {
-        unregisterHotKey((HWND)winId(), *i);
+        UnregisterHotKey((HWND)winId(), *i);
     }
     #elif defined(Q_OS_LINUX)
     xcb_key_symbols_free(X11KeySymbs);
