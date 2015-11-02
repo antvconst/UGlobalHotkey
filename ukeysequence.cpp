@@ -16,7 +16,8 @@ UKeySequence::UKeySequence(const QString& str, QObject *parent)
 bool IsModifier(int key) {
     return (key == Qt::Key_Shift ||
             key == Qt::Key_Control ||
-            key == Qt::Key_Alt);
+            key == Qt::Key_Alt ||
+            key == Qt::Key_Meta);
 }
 
 static QString KeyToStr(int key) {
@@ -28,6 +29,9 @@ static QString KeyToStr(int key) {
     }
     if (key == Qt::Key_Alt) {
         return "Alt";
+    }
+    if (key == Qt::Key_Meta) {
+        return "Meta";
     }
     QKeySequence seq(key);
     return seq.toString();
